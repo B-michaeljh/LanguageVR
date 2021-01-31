@@ -215,9 +215,11 @@
     <Compile Include="Assets\Oculus\Spatializer\scripts\ONSPVersion.cs" />
     <Compile Include="Assets\Oculus\Spatializer\scripts\OculusSpatializerUnity.cs" />
     <Compile Include="Assets\Oculus\Spatializer\scripts\helpers\ONSPReflectionZone.cs" />
-    <Compile Include="Assets\Scripts\Pen.cs" />
-    <Compile Include="Assets\Scripts\Teleport_Caligraphy.cs" />
-    <Compile Include="Assets\Scripts\WhiteBoard.cs" />
+    <Compile Include="Assets\Scripts\ButtonTest.cs" />
+    <Compile Include="Assets\Scripts\Caligraphy\Eraser.cs" />
+    <Compile Include="Assets\Scripts\Caligraphy\Pen.cs" />
+    <Compile Include="Assets\Scripts\Teleport\Teleport_Caligraphy.cs" />
+    <Compile Include="Assets\Scripts\Teleport\Teleport_Main.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark02.cs" />

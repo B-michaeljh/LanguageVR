@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/CaligraphyLesson.unity
     guid: 129cd5a5d6afb6d40917e49916a4c77e
+  - enabled: 1
+    path: Assets/Scenes/CafeScenario.unity
+    guid: 9e806d21f5e44da4c8b53d49fc208775
   m_configObjects: {}

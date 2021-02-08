@@ -2,58 +2,50 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
+using System;
 
 public class ButtonTest : MonoBehaviour
 {
-    float pressRate = 3f;
-    float nextPress;
-    string POST_URL = @"http://127.0.0.1:5000/predict";
-    string savedPath = "C:/Users/Brandon/Desktop/Speech/Chinese/ZaoShangHao/zaoshanghao003.wav";
-    // Start is called before the first frame update
+    string savedPath;
+    AudioClip clip;
+    
     void Start()
     {
-        
+        // Mono default behavior does not trust any server;
+        // the following is a workaround (there is a better solution to this issue which can be found in the Internet.  
+        System.Net.ServicePointManager.ServerCertificateValidationCallback = (a, b, c, d) => {
+            return true;
+        };
+
+        // Output the device details available in the system, helpful when want to check capability of each device.
+        //foreach (string device in Microphone.devices)
+        //{
+        //    Debug.Log("Name: " + device);
+        //}
     }
 
-    // Update is called once per frame
-    void Update()
+    // Trigger for Recording Speech
+    public void OnTriggerEnter(Collider other)
     {
-        
+        //ADD SOME COUNTDOWN HERE
+        RecordSpeech();
     }
 
-    public void OnTriggerStay(Collider other)
+    void RecordSpeech()
     {
-        if (nextPress < Time.time)
-        {
-            StartCoroutine(PostSpeech());
-            nextPress = Time.time + pressRate;
-            
-        }
-    }
+        // Enables recording from microphone
+        Debug.Log("Recording has started");
+        clip = Microphone.Start("Headset Microphone (Rift S)", true, 2, 16000);
 
-    public IEnumerator PostSpeech()
-    {
-        string filePath = savedPath;
-        byte[] postData = File.ReadAllBytes(filePath);
-    
-        WWWForm form = new WWWForm();
-        form.AddBinaryData("file", postData, "Speech", "audio/wav");
-        WWW www = new WWW(POST_URL, form);
-        yield return www;
+        // Need pause for recording
+        System.Threading.Thread.Sleep(3000);
 
-        //THE STRING NEEDED
-        Debug.Log(convertString(www.text));
+        // Stops recording 
+        Debug.Log("Recording has stopped");
 
+        Microphone.End("Headset Microphone (Rift S)");
+        SavWav.Save("myfile", clip);
+        savedPath = Path.Combine(Application.persistentDataPath, "myfile.wav");
 
     }
-    public string convertString(string input)
-    {
-        string startString = ":";
-        string endString = "}";
-        int startIndex = input.IndexOf(startString) +2;
-        int endIndex = input.IndexOf(endString) -1;
-        
-        return input.Substring(startIndex, endIndex - startIndex);
-    }
-
 }

@@ -15,12 +15,12 @@ TagManager:
   - 
   - GrabLayer
   - 
-  - 
+  - PlayerLayer
   - 
   - 
   - PenLayer
   - WhiteBoard
-  - 
+  - WhiteBoard(2)
   - 
   - InkLayer
   - 

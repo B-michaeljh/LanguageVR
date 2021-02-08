@@ -8,7 +8,5 @@ public class Teleport_Caligraphy : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         SceneManager.LoadScene(1);
-        //Debug.Log("TRIGGERED");
-
     }
 }

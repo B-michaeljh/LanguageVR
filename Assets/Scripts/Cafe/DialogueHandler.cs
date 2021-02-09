@@ -78,21 +78,35 @@ public class DialogueHandler : MonoBehaviour
             // Validate conversation with NPC
             if (isTalking == true && OVRInput.Get(OVRInput.Button.Four))
             {
-                // Post the phrase to check
-                StartCoroutine(PostSpeech());
-                Debug.Log("Phrase Expected: " + npc.playerDialogue[responseTracker]);
-                Debug.Log("Phrase Predicted: " + predictedKeyword);
-                // If phrase is correct
-                if (predictedKeyword == npc.playerDialogue[responseTracker])
+                // If on the last dialogue
+                if (responseTracker == 5)
+                {
+                    EndDialogue();
+                }
+                // If not on the last dialogue
+                else
                 {
                     responseTracker++;
                     NPC_Dialogue.text = npc.dialogue[responseTracker];
+                    //// Post the phrase to check
+                    //StartCoroutine(PostSpeech());
+                    //Debug.Log("Phrase Expected: " + npc.playerDialogue[responseTracker]);
+                    //Debug.Log("Phrase Predicted: " + predictedKeyword);
+                    //// If phrase is correct
+                    //if (predictedKeyword == npc.playerDialogue[responseTracker])
+                    //{
+                    //    responseTracker++;
+                    //    NPC_Dialogue.text = npc.dialogue[responseTracker];
+                    //}
+                    //// If phrase is wrong
+                    //else
+                    //{
+                    //    //NPC_Dialogue.text = "Phrase Expected: " + npc.playerDialogue[responseTracker] + "Phrase Predicted: " + predictedKeyword;
+                    //    NPC_Dialogue.text = "I didn't recognise what you said, please try again - " + npc.dialogue[responseTracker];
+                    //}
                 }
-                // If phrase is wrong
-                else {
-                    NPC_Dialogue.text = "Phrase Expected: " + npc.playerDialogue[responseTracker] + "Phrase Predicted: " + predictedKeyword;
 
-                }
+
             }
         }
 
@@ -109,7 +123,7 @@ public class DialogueHandler : MonoBehaviour
 
     // End dialogue text box
     void EndDialogue()
-    {
+    {   
         isTalking = false;
         dialogueUI.SetActive(false);
     }

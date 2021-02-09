@@ -14,10 +14,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Barista
   dialogue:
-  - "Ni Hao \n(Hello)"
-  - The second step of dialogue
-  - The third step of dialogue
+  - "\nBariasta says: N\u01D0 h\u01CEo (Hello)\nRespond with: N\u01D0 h\u01CEo (Hello)"
+  - "\nBariasta says: Q\u01D0ngw\xE8n n\xEDn xi\u01CEng h\u0113 di\u01CEn sh\xE9nme
+    (What would you like to drink?)\nRespond with: KaFeiDaiZou (Coffee to go)"
+  - "\nBariasta says: H\u01CEo de (Sure thing)\nRespond with: Xie Xie (Thanks)"
+  - "\nBariasta says: Zh\xE8 sh\xEC n\u01D0 de k\u0101f\u0113i (Here's your coffee)\nRespond
+    with: Xie Xie (Thanks)"
+  - "\nBariasta says: Bi\xE9 k\xE8q\xEC (You're welcome)\nRespond with: Z\xE0i Ji\xE0n
+    (Goodbye)"
+  - "\nBariasta says: Z\xE0iji\xE0n (Goodbye)"
   playerDialogue:
   - NiHao
-  - The second expected player dialogue
-  - The third expected player dialogue
+  - KaFeiDaiZou
+  - XieXie
+  - XieXie
+  - ZaiJian
